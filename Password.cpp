@@ -28,10 +28,10 @@ bool Password::has_mixed_case(string pass){
   bool has_lower = false;
 
   for (char c : pass){
-    if(c >= "A" && c <= "Z"){
+    if(c >= 'A' && c <= 'Z'){
       has_upper = true;
     }
-    if (c >= "a" && c <= "z"){
+    if (c >= 'a' && c <= 'z'){
       has_lower = true;
     }
   }
