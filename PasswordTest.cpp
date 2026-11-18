@@ -28,11 +28,16 @@ TEST(PasswordTest, repeated_letters){
 }
 
 
-
-TEST(passwordTest, no_chars){
+TEST(PasswordTest, no_chars){
 	Password my_password;
 	int actual = my_password.count_leading_characters("");
 	ASSERT_EQ(0, actual);
+}
+
+TEST(PasswordTest, no_repeat){
+	Password my_password;
+	int actual = my_password.count_leading_characters("abc");
+	ASSERT_EQ(1, actual);
 }
 
 TEST(PasswordTest, normal_case){
@@ -49,6 +54,18 @@ TEST(PasswordTest, not_mixed){
 
 TEST(PasswordTest, only_numbers){
 	Password my_password;
-	bool actual =my_password.has_mixed_case("123");
-	ASSERT_FALSE(actual)
+	bool actual = my_password.has_mixed_case("123");
+	ASSERT_FALSE(actual);
+}
+
+TEST(PasswordTest, only_symbol){
+	Password my_password;
+	bool actual = my_password.has_mixed_case("{");
+	ASSERT_FALSE(actual);
+}
+
+TEST(PasswordTest, all_upper){
+	Password my_password;
+	bool actual = my_password.has_mixed_case("HELLO");
+	ASSERT_FALSE(actual);
 }
